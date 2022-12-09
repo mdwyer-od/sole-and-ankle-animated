@@ -37,6 +37,15 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 };
 
 const Overlay = styled(DialogOverlay)`
+  @keyframes fade-in {
+    from {
+      opacity: 0
+    }
+    to {
+      opacity: 1
+    }
+  }
+
   position: fixed;
   top: 0;
   left: 0;
@@ -45,15 +54,44 @@ const Overlay = styled(DialogOverlay)`
   background: var(--color-backdrop);
   display: flex;
   justify-content: flex-end;
+  animation: fade-in 500ms;
 `;
 
 const Content = styled(DialogContent)`
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
   background: white;
   width: 300px;
   height: 100%;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
+  opacity: 1;
+  animation: slide-in 500ms;
+  animation-delay: 200ms;
+  animation-fill-mode: backwards;
+
+  > * {
+    @keyframes fade-in {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+
+    animation: fade-in 500ms;
+    animation-delay: 500ms;
+    animation-fill-mode: backwards;
+  }
 `;
 
 const CloseButton = styled(UnstyledButton)`
