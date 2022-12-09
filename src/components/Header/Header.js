@@ -20,12 +20,30 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLinkContainer>
+            <NavLink href="/sale">Sale</NavLink>
+            <NavLink href="/sale">Sale</NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer>
+            <NavLink href="/new">New&nbsp;Releases</NavLink>
+            <NavLink href="/new">New&nbsp;Releases</NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer>
+            <NavLink href="/men">Men</NavLink>
+            <NavLink href="/men">Men</NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer>
+            <NavLink href="/women">Women</NavLink>
+            <NavLink href="/women">Women</NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer>
+            <NavLink href="/kids">Kids</NavLink>
+            <NavLink href="/kids">Kids</NavLink>
+          </NavLinkContainer>
+          <NavLinkContainer>
+            <NavLink href="/collections">Collections</NavLink>
+            <NavLink href="/collections">Collections</NavLink>
+          </NavLinkContainer>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -114,16 +132,40 @@ const Filler = styled.div`
   }
 `;
 
+const NavLinkContainer = styled.div`
+  overflow: hidden;
+  height: 21px;
+  &:first-of-type > a:first-child {
+    color: var(--color-secondary);
+  }
+
+  > :first-child {
+  }
+
+  > :last-child {
+    transform: translateY(27px);
+    font-weight: ${WEIGHTS.bold};
+  }
+
+  &:hover {
+    > :first-child {
+      transform: translateY(-27px);
+    }
+
+    > :last-child {
+      transform: translateY(-27px);
+    }
+  }
+`;
+
 const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
-
-  &:first-of-type {
-    color: var(--color-secondary);
-  }
+  display: block;
+  transition: 300ms;
 `;
 
 export default Header;
